@@ -1,10 +1,5 @@
 //number systems [binary , octal , decimal, hexadecimal ,user defined]
 
-#define DEC_MAX 2147483647
-#define HEX_MAX 0xFFFFFFFF
-#define OCT_MAX 0x37777777777
-#define BIN_MAX 11111111111111111111111111111111
-
 #define INT_MAX_DEC 10
 #define INT_MAX_HEX 8
 #define INT_MAX_OCT 11
@@ -12,7 +7,8 @@
 
 int Number_System[][1]={{0},{0},{0},{0}};
 
-//{
+//String Operations
+
 int String_Length(const char *p)
 {
     int i=0;
@@ -39,9 +35,8 @@ void StringCopy(char *p , const char *q)
     }
 }
 
-//}//String Operations
+//Check and Confirm the input value
 
-//{
 int Check_Decimal(const char *Num)
 {
     int i=0;
@@ -149,9 +144,7 @@ int Check_UserDefined(const char *Num,int n)
     return 1;
 }
 
-//}//Check and Confirm the input value
-
-//{
+//A to I conversion
 
 int UserDefined(const char *Num,int n)
 {
@@ -250,9 +243,8 @@ int HexaDecimal_Number(const char *Num)
     }
     return Number;
 }
-//}//A to I conversion
 
-//{
+//I to A conversion
 
 int AnyDecimal(int n,char *p,int base)
 {
@@ -379,9 +371,8 @@ int HexaDecimal(int n, char *p)
     return i;
 }
 
-//}//I to A conversion
+//Decimal to Binary, Octal, HexaDecimal Conversion
 
-//{
 int Decimal_to_Binary(const char *Num , char *ConvertNum)
 {
     int Number;
@@ -421,9 +412,8 @@ int Decimal_to_Decimal(const char *Num , char *ConvertNum)
     return 1;
 }
 
-//}//Decimal to Binary, Octal, HexaDecimal Conversion
+//Binary to Decimal, Octal, HexaDecimal Conversion
 
-//{
 int Binary_to_Decimal(const char *Num , char *ConvertNum)
 {
     int Number;
@@ -463,9 +453,8 @@ int Binary_to_Binary(const char *Num , char *ConvertNum)
     return 1;
 }
 
-//}//Binary to Decimal, Octal, HexaDecimal Conversion
+//Octal to Binary, Decimal, Hexadecimal Conversion
 
-//{
 int Octal_to_Binary(const char *Num , char *ConvertNum)
 {
     int Number;
@@ -505,9 +494,8 @@ int Octal_to_Octal(const char *Num , char *ConvertNum)
     return 1;
 }
 
-//}//Octal to Binary, Decimal, Hexadecimal Conversion
+//Hexadecimal to Binary, Decimal, Octal Conversion
 
-//{
 int HexaDecimal_to_Binary(const char *Num , char *ConvertNum)
 {
     int Number;
@@ -546,42 +534,3 @@ int HexaDecimal_to_HexaDecimal(const char *Num , char *ConvertNum)
     StringCopy(ConvertNum,Num);
     return 1;
 }
-
-//}//HexaDecimal to Binary, Decimal, Octal Conversion
-/*
-#include<stdio.h>
-int main()
-{
-    int (*fp[4][4])(const char*,char*) = {{Decimal_to_Decimal , Decimal_to_Binary , Decimal_to_Octal , Decimal_to_HexaDecimal},
-                                        {Binary_to_Decimal  , Binary_to_Binary  , Binary_to_Octal  , Binary_to_HexaDecimal},
-                                        {Octal_to_Binary    , Octal_to_Decimal  , Octal_to_Octal   , Octal_to_HexaDecimal},
-                                        {HexaDecimal_to_Binary , HexaDecimal_to_Decimal , HexaDecimal_to_Octal ,HexaDecimal_to_HexaDecimal  }};
-   
-    short int input1,input2 , ret;
-    char arr[2][33] , type[]={"\n1.Decimal , 2.Binary , 3.Octal, 4.Hexadecimal"};
-R2:    puts(type);
-    printf("Enter  Input Type:");
-    scanf("%hd",&input1);
-    printf("Input Number :");
-    scanf("%s",arr[0]);
-    while(getchar()!='\n');
-R1:    printf("Enter Output Type:");
-    scanf("%hd",&input2);
-    if(input2>4 || input1>4 )
-        return 0;
-    if(fp[input1-1][input2-1] == NULL)
-        puts("Address not found");
-    ret = fp[input1-1][input2-1](arr[0],arr[1]);
-    if(ret == 0)
-    {
-        puts("Invaild input");
-        goto R2;
-    }
-    else if(ret)
-        puts(arr[1]);
-    else 
-        puts("Invalid Input");
-    if(input2>5)
-        goto R1;
-    return 1;
-}/**/
