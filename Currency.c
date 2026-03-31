@@ -1,7 +1,3 @@
-
-
-
-
 /*currency 
         1.INR [INDIAN RUPEE] 
         2.USD[UNITED STATES] 
