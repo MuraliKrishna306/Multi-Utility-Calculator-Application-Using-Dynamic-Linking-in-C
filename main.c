@@ -23,16 +23,11 @@ int main()
 	switch(c)
 	{
 	    case '0':		return 0;
-    	case '1':		Arithmatic(value1,value2);
-	                    break;
-    	case '2':		NumberSystems(Number1,Number2);
-	                    break;
-    	case '3':		Distance();
-	    	            break;
-    	case '4':		Currency();
-	                	break;
-    	case '5':		Weight();
-    		            break;
+    	case '1':		Arithmatic(value1,value2);			break;
+    	case '2':		NumberSystems(Number1,Number2);		break;
+    	case '3':		Distance();		    	            break;
+    	case '4':		Currency();		                	break;
+    	case '5':		Weight();	    		            break;
     	default:    	break;
 	}
 	return 1;
@@ -80,6 +75,7 @@ Menu:	printf(" Enter Choice:");
 		return ;
 	else if(choice>7)
 		goto Menu;
+
 	Arith[0]=dlsym(vp,"add");
 	Arith[1]=dlsym(vp,"sub");
 	Arith[2]=dlsym(vp,"mul");
@@ -87,6 +83,7 @@ Menu:	printf(" Enter Choice:");
 	Arith[4]=dlsym(vp,"mod");
 	Arith[5]=dlsym(vp,"power");
 	Arith[6]=dlsym(vp,"factorial");
+
 	if(Arith[choice-1]==NULL)
 	{
 		printf("%s\n",dlerror());
@@ -127,22 +124,22 @@ D1:
 //	scanf("%s",Number1);
     fgets(Number1,NumberLength,stdin);
     Number1[NumberLength-1]='\0';
-
+	//	Decimal number conversion
 	NumberSys[0][0]=dlsym(vp,"Decimal_to_Decimal");
 	NumberSys[0][1]=dlsym(vp,"Decimal_to_Binary");
 	NumberSys[0][2]=dlsym(vp,"Decimal_to_HexaDecimal");
 	NumberSys[0][3]=dlsym(vp,"Decimal_to_Octal");
-
+	// Binary number conversion
 	NumberSys[1][0]=dlsym(vp,"Binary_to_Decimal");
 	NumberSys[1][1]=dlsym(vp,"Binary_to_Binary");
 	NumberSys[1][2]=dlsym(vp,"Binary_to_HexaDecimal");
 	NumberSys[1][3]=dlsym(vp,"Binary_to_Octal");
-
+	//	HexaDecimal number conversion
 	NumberSys[2][0]=dlsym(vp,"HexaDecimal_to_Decimal");
 	NumberSys[2][1]=dlsym(vp,"HexaDecimal_to_Binary");
 	NumberSys[2][2]=dlsym(vp,"HexaDecimal_to_HexaDecimal");
 	NumberSys[2][3]=dlsym(vp,"HexaDecimal_to_Octal");
-
+	//	Octal number conversion
 	NumberSys[3][0]=dlsym(vp,"Octal_to_Decimal");
 	NumberSys[3][1]=dlsym(vp,"Octal_to_Binary");
 	NumberSys[3][2]=dlsym(vp,"Octal_to_HexaDecimal");
